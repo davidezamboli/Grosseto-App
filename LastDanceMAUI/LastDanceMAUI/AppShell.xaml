@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="LastDanceMAUI.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:LastDanceMAUI.Pages"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Shell.FlyoutBehavior="Flyout"
+    Title="LastDanceMAUI"
+    Shell.ForegroundColor="#f45151"
+    Style="{StaticResource BaseStyle}">
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="Shell">
+                <Setter Property="Shell.TitleColor" Value="White"/>
+            </Style>
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <TabBar FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent
+            Title="Location"
+            FlyoutIcon="stemma_grosseto_24"
+            ContentTemplate="{DataTemplate pages:LocationPage}"
+            Route="LocationPage" />
+        <ShellContent
+            Title="Weather"
+            FlyoutIcon="weather"
+            ContentTemplate="{DataTemplate pages:WeatherPage}"
+            Route="WeatherPage" />
+    </TabBar>
+
+    <!-- Flyout -->
+    <Shell.FlyoutHeader>
+        <Border StrokeThickness="0"
+                StrokeShape="RoundRectangle"
+                Padding="10"
+                BackgroundColor="{StaticResource PrimaryColor}">
+            <VerticalStackLayout HorizontalOptions="Center"
+                                 Spacing="25">
+                <Label Text="MAUI Last Dance"
+                       FontSize="18"
+                       FontAttributes="Bold"
+                       TextColor="White"
+                       TextTransform="Uppercase"
+                       HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </Border>
+    </Shell.FlyoutHeader>
+
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid ColumnDefinitions="Auto, *, Auto"
+                  RowDefinitions="Auto, Auto"
+                  ColumnSpacing="15"
+                  RowSpacing="10"
+                  Padding="10">
+                <Image Grid.Column="0"
+                       Grid.Row="0"
+                       HeightRequest="24"
+                       WidthRequest="24"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"
+                       Source="{Binding FlyoutIcon}"/>
+                <Label Grid.Column="1"
+                       Grid.Row="0"
+                       Text="{Binding Title}"
+                       FontSize="16"
+                       TextColor="{StaticResource PrimaryColor}"
+                       VerticalOptions="Center"
+                       HorizontalOptions="StartAndExpand"/>
+                <Image Grid.Column="2"
+                       Grid.Row="0"
+                       VerticalOptions="Center"
+                       HorizontalOptions="End"
+                       Source="right_arrow"
+                       HeightRequest="18"
+                       WidthRequest="18">
+                    <Image.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="#f45151"/>
+                    </Image.Behaviors>
+                </Image>
+                <BoxView Grid.ColumnSpan="3"
+                         Grid.Row="1"
+                         HeightRequest="1"
+                         Color="{StaticResource PrimaryColor}"/>
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+        
+    <Shell.FlyoutFooter>
+        <Border StrokeThickness="0"
+                Padding="10"
+                BackgroundColor="{StaticResource PrimaryColor}">
+            <Label Text="Developed by DZ"
+                   TextColor="White"
+                   HorizontalOptions="Center"
+                   FontSize="15"
+                   FontAttributes="Bold"
+                   TextDecorations="Underline"/>
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+            </Border.GestureRecognizers>
+        </Border>
+    </Shell.FlyoutFooter>
+</Shell>

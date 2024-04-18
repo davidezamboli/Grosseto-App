@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LastDanceMAUI.Pages.LocationPage"
+             Title="Location"
+             x:Name="LocationPageName"
+             BindingContext="{x:Reference LocationPageName}">
+    
+    <Grid RowDefinitions="Auto, *">
+        <Border StrokeShape="RoundRectangle"
+                StrokeThickness="0"
+                BackgroundColor="Transparent"
+                Grid.Row="0">
+            <Image Source="grosseto"/>
+        </Border>
+        <ScrollView Padding="15"
+                    Margin="15"
+                    Grid.Row="1">
+            <Border StrokeShape="RoundRectangle"
+                                StrokeThickness="0"
+                                Padding="0, 10"
+                                Margin="10">
+                            <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto"
+                                  RowSpacing="30">
+                                <Image Source="{Binding Location.Stemma}"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       WidthRequest="180"
+                                       HeightRequest="180"
+                                       Grid.Row="0"/>
+                                <Border StrokeShape="RoundRectangle"
+                                        StrokeThickness="0"
+                                        BackgroundColor="Transparent"
+                                        Grid.Row="1">
+                                    <Grid RowDefinitions="*, *">
+                                        <Label Grid.Row="0"
+                                               Text="{Binding Location.Provincia}"
+                                               VerticalOptions="Center"
+                                               HorizontalOptions="Center"
+                                               FontAttributes="Bold"
+                                               FontSize="25"/>
+                                        <HorizontalStackLayout Grid.Row="1"
+                                                             VerticalOptions="Center"
+                                                             HorizontalOptions="Center"
+                                                               Spacing="5">
+                                            <Label Text="{Binding Location.Stato}"
+                                                   FontSize="16"/>
+                                            <Label Text="{Binding Location.Regione}"
+                                                   FontSize="16"/>
+                                        </HorizontalStackLayout>
+                                    </Grid>
+                                </Border>
+
+                                <Border StrokeShape="RoundRectangle"
+                                        HeightRequest="20"
+                                        BackgroundColor="Transparent"
+                                        StrokeThickness="0"
+                                        Grid.Row="2"/>
+
+                                <Border StrokeShape="RoundRectangle"
+                                        StrokeThickness="0"
+                                        BackgroundColor="Transparent"
+                                        Grid.Row="3">
+                                    <Grid ColumnDefinitions="*, *">
+                                        <Label Grid.Column="0"
+                                               Text="Citizens"
+                                               HorizontalOptions="Start"
+                                               VerticalOptions="Center"
+                                               FontAttributes="Bold"
+                                               FontSize="18"/>
+                                        <Label Grid.Column="1"
+                                             HorizontalOptions="End"
+                                             VerticalOptions="Center"
+                                             FontAttributes="Bold"
+                                             FontSize="16"
+                                             Text="{Binding Location.Abitanti}"/>
+                                    </Grid>
+                                </Border>
+                                <Border StrokeShape="RoundRectangle"
+                                        StrokeThickness="0"
+                                        BackgroundColor="Transparent"
+                                        Grid.Row="4">
+                                    <Grid ColumnDefinitions="*, *">
+                                        <Label Grid.Column="0"
+                                               Text="Density"
+                                               HorizontalOptions="Start"
+                                               VerticalOptions="Center"
+                                               FontAttributes="Bold"
+                                               FontSize="18"/>
+                                        <Label Grid.Column="1"
+                                                 HorizontalOptions="End"
+                                                 VerticalOptions="Center"
+                                                 FontAttributes="Bold"
+                                                 FontSize="16"
+                                                 Text="{Binding Location.Densità}"/>
+                                    </Grid>
+                                </Border>
+                                <Border StrokeShape="RoundRectangle"
+                                        StrokeThickness="0"
+                                        BackgroundColor="Transparent"
+                                        Grid.Row="8">           
+                                    <Grid ColumnDefinitions="*, 4*">
+                                        <Label Grid.Column="0"
+                                               Text="Mayor"
+                                               HorizontalOptions="Start"
+                                               VerticalOptions="Center"
+                                               FontAttributes="Bold"
+                                               FontSize="18"/>
+                                        <Label Grid.Column="1"
+                                                 HorizontalOptions="End"
+                                                 VerticalOptions="Center"
+                                                 FontAttributes="Bold"
+                                                 FontSize="16"
+                                                 Text="{Binding Location.Sindaco}"/>
+                                    </Grid>
+                                </Border>
+                                <Border StrokeShape="RoundRectangle"
+                                        StrokeThickness="0"
+                                        BackgroundColor="Transparent"
+                                        Grid.Row="6">
+                                    <Grid ColumnDefinitions="*, *">
+                                        <Label Grid.Column="0"
+                                               Text="City surface"
+                                               HorizontalOptions="Start"
+                                               VerticalOptions="Center"
+                                               FontAttributes="Bold"
+                                               FontSize="18"/>
+                                        <Label Grid.Column="1"
+                                                 HorizontalOptions="End"
+                                                 VerticalOptions="Center"
+                                                 FontAttributes="Bold"
+                                                 FontSize="16"
+                                                 Text="{Binding Location.Superficie}"/>
+                                    </Grid>
+                                </Border>
+                                <Border StrokeShape="RoundRectangle"
+                                        StrokeThickness="0"
+                                        BackgroundColor="Transparent"
+                                        Grid.Row="5">
+                                    <Grid ColumnDefinitions="*, *">
+                                        <Label Grid.Column="0"
+                                               Text="Altitude"
+                                               HorizontalOptions="Start"
+                                               VerticalOptions="Center"
+                                               FontAttributes="Bold"
+                                               FontSize="18"/>
+                                        <Label Grid.Column="1"
+                                                 HorizontalOptions="End"
+                                                 VerticalOptions="Center"
+                                                 FontAttributes="Bold"
+                                                 FontSize="16"
+                                                 Text="{Binding Location.Altitudine}"/>
+                                    </Grid>
+                                </Border>
+                                <Border StrokeShape="RoundRectangle"
+                                        StrokeThickness="0"
+                                        BackgroundColor="Transparent"
+                                        Grid.Row="7">               
+                                    <Grid ColumnDefinitions="2*, *, *">
+                                        <Label Grid.Column="0"
+                                               Text="Coordinates"
+                                               HorizontalOptions="Start"
+                                               VerticalOptions="Center"
+                                               FontAttributes="Bold"
+                                               FontSize="18"/>
+                                        <Label Grid.Column="1"
+                                                 HorizontalOptions="End"
+                                                 VerticalOptions="Center"
+                                                 FontAttributes="Bold"
+                                                 FontSize="16"
+                                                 Text="{Binding Location.Coordinate.lat}"/>
+                                        <Label Grid.Column="2"
+                                                 HorizontalOptions="End"
+                                                 VerticalOptions="Center"
+                                                 FontAttributes="Bold"
+                                                 FontSize="16"
+                                                 Text="{Binding Location.Coordinate.lng}"/>          
+                                    </Grid>
+                                </Border>
+                            </Grid>
+            </Border>
+        </ScrollView>
+    </Grid>
+</ContentPage>
